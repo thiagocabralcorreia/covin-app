@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import colors from '../../colors';
 
 const styles = StyleSheet.create({
@@ -9,17 +9,16 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.purple,
 	},
 	logo: {
-		fontSize: 28,
-		marginTop: 60,
-		marginBottom: 50,
-		textAlign: 'center',
-		color: colors.orange,
-		fontFamily: 'Jost_600SemiBold',
+		marginVertical: 50,
+		alignSelf: 'center',
+		width: Dimensions.get('window').width * 0.35,
+        height: 35,
 	},
 	contentContainer: {
 		flex: 1,
 		width: '100%',
 		justifyContent: 'center',
+		alignItems: 'center',
 		backgroundColor: colors.white,
 		borderTopLeftRadius: 25,
 		borderTopRightRadius: 25,
@@ -27,16 +26,25 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 17,
 		color: colors.purple,
-		marginBottom: 30,
+		marginTop: 45,
+		marginBottom: 20,
 		paddingHorizontal: 27,
+		textAlign: 'center',
 		fontFamily: 'Jost_600SemiBold',
 	},
 	text: {
-		fontSize: 15,
-		marginBottom: 35,
+		fontSize: 16,
+		marginBottom: 30,
 		paddingHorizontal: 27,
 		color: colors.black,
+		textAlign: 'center',
 		fontFamily: 'Jost_400Regular',
+	},
+	buttonContainer: {
+		flex: 1,
+		width: '100%',
+		alignItems: 'center',
+		marginHorizontal: 'auto',
 	},
 });
 
