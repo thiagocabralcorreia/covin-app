@@ -9,17 +9,17 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import {RootStackParamList} from '../../routes';
 import { ArrowButton } from '../../components/ArrowButton';
 
-type globalProp = StackNavigationProp<RootStackParamList, 'GlobalSituation'>;
+type countryProp = StackNavigationProp<RootStackParamList, 'CountrySituation'>;
 
-const GlobalSituation: React.FC = () => {
-  const navigation = useNavigation<globalProp>();
+const CountrySituation: React.FC = () => {
+  const navigation = useNavigation<countryProp>();
 
 	return (
 		<View style={styles.container}>
 			<ArrowButton onPress={() => navigation.navigate('Home')}>
 				<MaterialIcons  name='arrow-left' size={30} color='white'/>
 			</ArrowButton>
-			<Text style={styles.title}>Global Situation</Text>
+			<Text style={styles.title}>Country Situation</Text>
 			<View style={styles.contentContainer}>
 				<Text style={styles.caseNumber}>2.234.200</Text>
 				<Text style={styles.subtitle}>New Cases</Text>
@@ -34,4 +34,4 @@ const GlobalSituation: React.FC = () => {
 	);
 }
 
-export default GlobalSituation;
+export default CountrySituation;
