@@ -6,8 +6,8 @@ import { MaterialIcons  } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
 import { StackNavigationProp } from '@react-navigation/stack';
 
-import {RootStackParamList} from '../../routes';
-import { ArrowButton } from '../../components/ArrowButton';
+import { RootStackParamList } from '../../routes';
+import { BorderlessButton } from '../../components/BorderlessButton';
 
 type countryProp = StackNavigationProp<RootStackParamList, 'CountrySituation'>;
 
@@ -16,9 +16,9 @@ const CountrySituation: React.FC = () => {
 
 	return (
 		<View style={styles.container}>
-			<ArrowButton onPress={() => navigation.navigate('Home')}>
+			<BorderlessButton onPress={() => navigation.navigate('Home')}>
 				<MaterialIcons  name='arrow-left' size={30} color='white'/>
-			</ArrowButton>
+			</BorderlessButton>
 			<Text style={styles.title}>Country Situation</Text>
 			<View style={styles.contentContainer}>
 				<Text style={styles.caseNumber}>2.234.200</Text>
