@@ -17,7 +17,7 @@ const CountrySituation: React.FC = () => {
 	return (
 		<View style={styles.container}>
 			<BorderlessButton onPress={() => navigation.navigate('Home')}>
-				<MaterialIcons  name='arrow-left' size={30} color='white'/>
+				<MaterialIcons name='arrow-left' size={30} color='white'/>
 			</BorderlessButton>
 			<Text style={styles.title}>Country Situation</Text>
 			<View style={styles.contentContainer}>

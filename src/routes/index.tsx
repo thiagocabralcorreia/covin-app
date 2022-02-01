@@ -9,7 +9,7 @@ import PreventionTips from '../screens/PreventionTips';
 
 export type RootStackParamList = {
 	Home: undefined;
-	GlobalSituation: undefined;
+	GlobalSituation: { report: object };
 	CountrySituation: undefined;
 	PreventionTips: undefined;
 };
