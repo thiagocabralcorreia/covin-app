@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import colors from '../../colors';
 
 const styles = StyleSheet.create({
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 	contentContainer: {
 		flex: 1,
 		width: '100%',
-		paddingTop: 45,
+		paddingTop: 50,
 		backgroundColor: colors.white,
 		borderTopLeftRadius: 25,
 		borderTopRightRadius: 25,

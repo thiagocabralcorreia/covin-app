@@ -1,34 +1,76 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { View, Text } from 'react-native';
+import SelectDropdown from 'react-native-select-dropdown'
 
 import styles from './styles';
 import { MaterialIcons  } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation, useRoute } from '@react-navigation/core';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
 
-import {RootStackParamList} from '../../routes';
-import { ArrowButton } from '../../components/ArrowButton';
+import { RootStackParamList } from '../../routes';
+import { BorderlessButton } from '../../components/BorderlessButton';
 
-type countryProp = StackNavigationProp<RootStackParamList, 'CountrySituation'>;
+type CountryNavigationProp = StackNavigationProp<RootStackParamList, 'CountrySituation'>;
+type CountryRouteProp = RouteProp<{ params: { report: object[] } }, 'params'>
 
 const CountrySituation: React.FC = () => {
-  const navigation = useNavigation<countryProp>();
+	const navigation = useNavigation<CountryNavigationProp>();
+	const route = useRoute<CountryRouteProp>();
+	const { report } = route.params;
+	const [ selectedCountry, setSelectedCountry ] = useState('');
+
+	function separator(number) {
+		const str = number.toString().split('.');
+		str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return str.join(".");
+	}
 
 	return (
 		<View style={styles.container}>
-			<ArrowButton onPress={() => navigation.navigate('Home')}>
-				<MaterialIcons  name='arrow-left' size={30} color='white'/>
-			</ArrowButton>
+			<BorderlessButton onPress={() => navigation.navigate('Home')}>
+				<MaterialIcons name='arrow-left' size={30} color='white'/>
+			</BorderlessButton>
 			<Text style={styles.title}>Country Situation</Text>
 			<View style={styles.contentContainer}>
-				<Text style={styles.caseNumber}>2.234.200</Text>
-				<Text style={styles.subtitle}>New Cases</Text>
-				<Text style={styles.caseNumber}>361.946.221</Text>
-				<Text style={styles.subtitle}>Total Cases</Text>
-				<Text style={styles.deathNumber}>7.753</Text>
-				<Text style={styles.subtitle}>New Deaths</Text>
-				<Text style={styles.deathNumber}>5.622.819</Text>
-				<Text style={styles.subtitle}>Total Deaths</Text>
+			<SelectDropdown
+				data={report}
+				onSelect={(selected) => {
+					setSelectedCountry(selected);
+				}}
+				buttonTextAfterSelection={(selected) => {
+					return selected.Country
+				}}
+				rowTextForSelection={(option) => {
+					return option.Country
+				}}
+				defaultButtonText='Select a Country'
+				buttonStyle={styles.selectButton}
+				buttonTextStyle={styles.selectText}
+				dropdownStyle={styles.dropdown}
+				rowTextStyle={styles.rowText}
+
+			/>
+				{selectedCountry !== '' && (
+					<>
+						<Text style={styles.caseNumber}>
+							{separator(selectedCountry.NewConfirmed)}
+						</Text>
+						<Text style={styles.subtitle}>New Cases</Text>
+						<Text style={styles.caseNumber}>
+							{separator(selectedCountry.NewDeaths)}
+						</Text>
+						<Text style={styles.subtitle}>New Deaths</Text>
+						<Text style={styles.deathNumber}>
+							{separator(selectedCountry.TotalConfirmed)}
+						</Text>
+						<Text style={styles.subtitle}>Total Cases</Text>
+						<Text style={styles.deathNumber}>
+							{separator(selectedCountry.TotalDeaths)}
+						</Text>
+						<Text style={styles.subtitle}>Total Deaths</Text>
+					</>
+				)}
 			</View>
 		</View>
 	);

@@ -8,8 +8,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Tip } from '../../components/Tip';
 import { tips } from '../../data/tips';
 
-import {RootStackParamList} from '../../routes';
-import { ArrowButton } from '../../components/ArrowButton';
+import { RootStackParamList } from '../../routes';
+import { BorderlessButton } from '../../components/BorderlessButton';
 
 type preventionProp = StackNavigationProp<RootStackParamList, 'PreventionTips'>;
 
@@ -18,9 +18,9 @@ const PreventionTips: React.FC = () => {
 
 	return (
 		<View style={styles.container}>
-			<ArrowButton onPress={() => navigation.navigate('Home')}>
-				<MaterialIcons  name='arrow-left' size={30} color='white'/>
-			</ArrowButton>
+			<BorderlessButton onPress={() => navigation.navigate('Home')}>
+				<MaterialIcons name='arrow-left' size={30} color='white'/>
+			</BorderlessButton>
 			<Text style={styles.title}>Prevention Tips</Text>
 			<View style={styles.contentContainer}>
 				<FlatList

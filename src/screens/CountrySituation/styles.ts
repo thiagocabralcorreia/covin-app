@@ -19,13 +19,38 @@ const styles = StyleSheet.create({
 	contentContainer: {
 		flex: 1,
 		width: '100%',
-		paddingTop: 45,
+		paddingTop: 40,
 		backgroundColor: colors.white,
 		borderTopLeftRadius: 25,
 		borderTopRightRadius: 25,
 	},
+	selectButton: {
+        backgroundColor: colors.orange,
+        height: 56,
+		width: Dimensions.get('window').width * 0.7,
+        borderRadius: 16,
+		alignSelf: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+		paddingHorizontal: 20,
+		marginBottom: 15,
+	},
+    selectText: {
+        fontSize: 16,
+        color: colors.white,
+        fontFamily: 'Jost_600SemiBold',
+		marginLeft: 16,
+    },
+	dropdown: {
+        backgroundColor: colors.orange,
+	},
+    rowText: {
+        fontSize: 16,
+        color: colors.white,
+        fontFamily: 'Jost_600SemiBold',
+    },
 	caseNumber: {
-		fontSize: 40,
+		fontSize: 38,
 		marginBottom: -5,
 		paddingHorizontal: 27,
 		color: colors.orange,
@@ -33,7 +58,7 @@ const styles = StyleSheet.create({
 		fontFamily: 'Jost_600SemiBold',
 	},
 	deathNumber: {
-		fontSize: 40,
+		fontSize: 36,
 		marginBottom: -5,
 		paddingHorizontal: 27,
 		color: colors.orange_dark,
@@ -42,7 +67,7 @@ const styles = StyleSheet.create({
 	},
 	subtitle: {
 		fontSize: 16,
-		marginBottom: 20,
+		marginBottom: 13,
 		paddingHorizontal: 27,
 		color: colors.black,
 		textAlign: 'center',
