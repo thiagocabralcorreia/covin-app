@@ -38,6 +38,15 @@ const Home: React.FC = () => {
 		navigation.navigate('GlobalSituation', { report: report.Global})
 	}
 
+	const getCountryData = () => {
+		navigation.navigate('CountrySituation', { report: report.Countries})
+	}
+
+	function lastUpdate(date) {
+		const update = new Date(date);
+		return update.toString();
+	}
+
 	return (
 		<View style={styles.container}>
 			<Image source={logo} style={styles.logo} />
@@ -58,7 +67,7 @@ const Home: React.FC = () => {
 					</Button>
 					<Button
 						title='Country Situation'
-						onPress={() => navigation.navigate('CountrySituation')}
+						onPress={getCountryData}
 					>
 						<FontAwesome name='flag' size={24} color='white' />
 					</Button>
@@ -69,6 +78,11 @@ const Home: React.FC = () => {
 						<Foundation name='info' size={30} color='white' />
 					</Button>
 				</View>
+				{report.Date !== '' && report.Date !== undefined && (
+					<Text style={styles.date}>
+						Last Update: {lastUpdate(report.Date)}
+					</Text>
+				)}
 			</View>
 		</View>
 	);
