@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/thiagocabralcorreia/covin-app/blob/main/assets/adaptive-icon.png" width="80" />
+  <img src="https://github.com/thiagocabralcorreia/covin-app/blob/main/assets/adaptive-icon.png" width="120" />
 </p>
 
 <h3 align="center">

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
-import SelectDropdown from 'react-native-select-dropdown'
 
 import styles from './styles';
 import { MaterialIcons  } from '@expo/vector-icons';
@@ -10,6 +9,7 @@ import { RouteProp } from '@react-navigation/native';
 
 import { RootStackParamList } from '../../routes';
 import { BorderlessButton } from '../../components/BorderlessButton';
+import { Select } from '../../components/Select';
 
 type CountryNavigationProp = StackNavigationProp<RootStackParamList, 'CountrySituation'>;
 type CountryRouteProp = RouteProp<{ params: { report: object[] } }, 'params'>
@@ -33,7 +33,7 @@ const CountrySituation: React.FC = () => {
 			</BorderlessButton>
 			<Text style={styles.title}>Country Situation</Text>
 			<View style={styles.contentContainer}>
-			<SelectDropdown
+			<Select
 				data={report}
 				onSelect={(selected) => {
 					setSelectedCountry(selected);
@@ -44,12 +44,6 @@ const CountrySituation: React.FC = () => {
 				rowTextForSelection={(option) => {
 					return option.Country
 				}}
-				defaultButtonText='Select a Country'
-				buttonStyle={styles.selectButton}
-				buttonTextStyle={styles.selectText}
-				dropdownStyle={styles.dropdown}
-				rowTextStyle={styles.rowText}
-
 			/>
 				{selectedCountry !== '' && (
 					<>

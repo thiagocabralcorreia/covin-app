@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import colors from '../../colors';
 
 const styles = StyleSheet.create({
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 	logo: {
 		marginVertical: 45,
 		alignSelf: 'center',
-		width: Dimensions.get('window').width * 0.35,
+		width: 130,
         height: 35,
 	},
 	contentContainer: {
@@ -26,15 +26,15 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 17,
 		color: colors.purple,
-		marginTop: 40,
-		marginBottom: 20,
+		marginTop: 50,
+		marginBottom: 25,
 		paddingHorizontal: 27,
 		textAlign: 'center',
 		fontFamily: 'Jost_600SemiBold',
 	},
 	text: {
 		fontSize: 15,
-		marginBottom: 25,
+		marginBottom: 30,
 		paddingHorizontal: 35,
 		color: colors.black,
 		textAlign: 'center',
