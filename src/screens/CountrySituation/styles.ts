@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         textAlign: 'center',
 		paddingHorizontal: 20,
-		marginBottom: 15,
+		marginBottom: 20,
 	},
     selectText: {
         fontSize: 16,

@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
         backgroundColor: colors.orange,
         height: 56,
-		width: Dimensions.get('window').width * 0.58,
+		width: 206,
         borderRadius: 16,
         justifyContent: 'flex-start',
         alignItems: 'center',

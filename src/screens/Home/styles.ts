@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.purple,
 	},
 	logo: {
-		marginVertical: 40,
+		marginVertical: 45,
 		alignSelf: 'center',
 		width: Dimensions.get('window').width * 0.35,
         height: 35,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		fontSize: 15,
-		marginBottom: 30,
+		marginBottom: 25,
 		paddingHorizontal: 35,
 		color: colors.black,
 		textAlign: 'center',
