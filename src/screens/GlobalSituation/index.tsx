@@ -10,8 +10,15 @@ import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../routes';
 import { BorderlessButton } from '../../components/BorderlessButton';
 
+interface GlobalReportSchema {
+	NewConfirmed?: number;
+    TotalConfirmed?: number;
+    NewDeaths?: number;
+    TotalDeaths?: number;
+}
+
 type GlobalNavigationProp = StackNavigationProp<RootStackParamList, 'GlobalSituation'>;
-type GlobalRouteProp = RouteProp<{ params: { report: object } }, 'params'>
+type GlobalRouteProp = RouteProp<{ params: { report: GlobalReportSchema } }, 'params'>
 
 const GlobalSituation: React.FC = () => {
 	const navigation = useNavigation<GlobalNavigationProp>();

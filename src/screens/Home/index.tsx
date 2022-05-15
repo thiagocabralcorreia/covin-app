@@ -11,12 +11,18 @@ import {RootStackParamList} from '../../routes';
 import { Button } from '../../components/Button';
 import logo from '../../../assets/images/covin_logo2.png';
 
+interface ReportSchema {
+	Global?: Object;
+	Countries?: Object;
+    Date?: string;
+}
+
 type homeProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 const Home: React.FC = () => {
 	const navigation = useNavigation<homeProp>();
 	const url = 'https://api.covid19api.com/summary';
-	const [ report, setReport ] = useState({});
+	const [ report, setReport ] = useState<ReportSchema>({});
 
 	const getData = async () => {
 		try {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Text, FlatList  } from 'react-native';
+import { RouteComponentProps } from "@reach/router";
 
 import styles from './styles';
 import { MaterialIcons  } from '@expo/vector-icons';
@@ -10,6 +11,11 @@ import { tips } from '../../data/tips';
 
 import { RootStackParamList } from '../../routes';
 import { BorderlessButton } from '../../components/BorderlessButton';
+
+interface TipSchema {
+    subtitle: string;
+    image: RouteComponentProps;
+}
 
 type preventionProp = StackNavigationProp<RootStackParamList, 'PreventionTips'>;
 
@@ -28,7 +34,7 @@ const PreventionTips: React.FC = () => {
 					showsVerticalScrollIndicator={false}
 					numColumns={2}
 					keyExtractor={tip => tip.subtitle}
-					renderItem={({ item }) => {
+					renderItem={({ item }: { item: TipSchema }) => {
 						return (
 						<Tip image={item.image} subtitle={item.subtitle} />
 						)

@@ -11,6 +11,14 @@ import { RootStackParamList } from '../../routes';
 import { BorderlessButton } from '../../components/BorderlessButton';
 import { Select } from '../../components/Select';
 
+interface CountryReportSchema {
+	Country?: string;
+	NewConfirmed?: number;
+	TotalConfirmed?: number;
+	NewDeaths?: number;
+	TotalDeaths?: number;
+}
+
 type CountryNavigationProp = StackNavigationProp<RootStackParamList, 'CountrySituation'>;
 type CountryRouteProp = RouteProp<{ params: { report: object[] } }, 'params'>
 
@@ -18,9 +26,9 @@ const CountrySituation: React.FC = () => {
 	const navigation = useNavigation<CountryNavigationProp>();
 	const route = useRoute<CountryRouteProp>();
 	const { report } = route.params;
-	const [ selectedCountry, setSelectedCountry ] = useState('');
+	const [ selectedCountry, setSelectedCountry ] = useState<CountryReportSchema>(undefined);
 
-	function separator(number) {
+	function separator(number: number) {
 		const str = number.toString().split('.');
 		str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		return str.join(".");
@@ -45,7 +53,7 @@ const CountrySituation: React.FC = () => {
 					return option.Country
 				}}
 			/>
-				{selectedCountry !== '' && (
+				{selectedCountry !== undefined && (
 					<>
 						<Text style={styles.caseNumber}>
 							{separator(selectedCountry.NewConfirmed)}
